@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<title>Assignment HTML/CSS</title>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="script.js"> -->
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+<body>  
+    <div class="wrapper">
+        <div class="navbar">
+            <button onclick="opentNavBar()"><img class="logo" src="logo-icon1.png"/></button>    
+            <img class="logout-logo" src="logo.png"/>
+        </div>
+        <!-- Sidebar -->
+        <div class="sidebar-wrapper" id="sidebar-nav">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Sidebar Navigation</h3>
+                </div>
+                <ul class="menu-sidebar">
+                    <li class="menu-item">
+                        <a href="#home" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                        <ul id="home" class="collapse list-unstyled">
+                            <li class="menu-item">
+                                <a href="#item" class="dropdown-toggle">item</a>
+                                <ul id="item" class="collapse list-unstyled">
+                                    <li class="menu-item">
+                                        <a>item 1</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a>item 2</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a>item 3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a>About</a>
+                    </li>
+                    <li class="menu-item">
+                        <a>Contact</a>
+                    </li>
+                    <li class="menu-item">
+                        <a>Support</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>    
+    </div>
+</body>
+</html>
+<script>
+    function opentNavBar(){
+    //  if(document.getElementById("sidebar-nav").style.display="block"){
+    //      document.getElementById("sidebar-nav").style.display="none";
+    //  }
+    //  else if(document.getElementById("sidebar-nav").style.display="none"){
+    //     document.getElementById("sidebar-nav").style.display="block";
+    //  }
+    debugger
+    if(document.getElementById("sidebar-nav").classList.contains('show')==true){
+        document.getElementById("sidebar-nav").classList.remove('show');
+    }else{
+        document.getElementById("sidebar-nav").classList.add('show');
+    }
+    }
+</script> 
