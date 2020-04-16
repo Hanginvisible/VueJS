@@ -80,9 +80,9 @@ body{
 .navbar button{
     background-color: #808080;
     background: transparent;
-  color: #808080;
-  border-color: #808080;
-  border-style: solid;
+    color: #808080;
+    border-color: #808080;
+    border-style: solid;
 }
 .logout-logo{
     float: right;
@@ -91,12 +91,19 @@ body{
 .show{
     display: none;
 }
-@media screen and (max-width:767px){
+@media screen and (max-width:768px){
     #sidebar {
         /* margin-left: -250px; */
         font-size: 15px;
     }
-    .sidebar-nav{
+    .sidebar-wrapper{
         display: none;
     }
 }
+
+@media screen and (min-width:768px){
+    .sidebar-wrapper{
+        display: block !important;
+    }
+}
+
