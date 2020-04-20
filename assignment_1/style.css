@@ -35,13 +35,13 @@ body{
     padding: 1px;
 }
 
-.dropdown-toggle::after {
+/* .dropdown-toggle::after {
     display: block;
     position: absolute;
     top: 50%;
     right: 40px;
     transform: translateY(-50%);
-}
+} */
 
 .menu-item{
     list-style-type: none;
@@ -99,9 +99,68 @@ body{
     width: 100%; 
     /* Height of the footer*/  
     height: 40px; 
-    background:rgba(53, 105, 90, 0.63); 
+    background:#808080; 
 } 
+#home{
+    display: none;
+}
+#item{
+    display: none;
+}
+#item2{
+    display: none;
+}
+.main-content{
+   margin-top: 40px;
+   margin-left: 300px;
+   width: 1000px;
+   height: 500px;
+}
+.input{
+   width: 1000px;
+   height: 200px;
+   overflow: scroll;
+   border: 1px solid #808080;
+}
 
+.input input{
+    margin-top: 20px;
+    margin-left: 10px;
+    border: 1px solid #1aa3ff;
+    width: 200px;
+    height: 30px;
+    font-size: medium;
+}
+
+.input button{
+    border-radius: 20px;
+}
+.main-content button{
+    width:105px;
+    height: 40px;
+    background-color: #808080;
+    border-style: solid;
+    /* border-radius: 15px; */
+}
+
+
+.input-sub{
+    float: left;
+    margin: 5px;
+}
+.invalid{
+    border: solid 1px red !important;
+}
+.err-message {
+    font-size: 12px;
+    color: red;
+    margin-left: 10px;
+}
+#input-wrapper{
+    width: 100%;
+    padding: 10px;
+    float: left;
+}
 /* mobile */
 @media screen and (max-width:768px){
     #sidebar {

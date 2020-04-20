@@ -4,11 +4,8 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="script.js"> -->
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 
 <body>
@@ -25,25 +22,26 @@
                 </div>
                 <ul class="menu-sidebar">
                     <li class="menu-item">
-                        <a href="#home" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                        <ul id="home" class="collapse list-unstyled">
+                        <a href="#home" onclick="openMenu()">Home <i class="fa fa-caret-down"></i></a>
+                        <ul id="home">
                             <li class="menu-item">
-                                <a href="#item" class="dropdown-toggle">item</a>
-                                <ul id="item" class="collapse list-unstyled">
+                                <a href="#item" onclick="openItem()">item <i class="fa fa-caret-down"></i></a>
+                                <ul id="item">
                                     <li class="menu-item">
                                         <a>item 1</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="#item2">item 2</a>
-                                        <ul id ="item2">
+                                        <a href="#item2" onclick="openItem2()">item 2 <i
+                                                class="fa fa-caret-down"></i></a>
+                                        <ul id="item2">
                                             <li class="menu-item">
                                                 <a>2.1</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a>2.1</a>
+                                                <a>2.2</a>
                                             </li>
                                             <li class="menu-item">
-                                                <a>2.1</a>
+                                                <a>2.3</a>
                                             </li>
 
                                         </ul>
@@ -52,6 +50,9 @@
                                         <a>item 3</a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#item">item</a>
                             </li>
                         </ul>
                     </li>
@@ -67,32 +68,16 @@
                 </ul>
             </nav>
         </div>
-        <div id ="footer">
-            This is a footer. 
-                      This stays at the bottom of the page. 
+        <div class="main-content">
+            <button onclick="add()">Add</button>
+            <button onclick="clearAll()">Clear</button>
+            <!-- <button onclick="getInputValues()">Values</button> -->
+            <button onclick="clearContent()">Clear content</button>
+            <div class="input" id="input-wrapper"></div>
         </div>
+        <div id="footer"></div>
     </div>
 </body>
 
 </html>
-<script>
-    function opentNavBar() {
-        //  if(document.getElementById("sidebar-nav").style.display="block"){
-        //      document.getElementById("sidebar-nav").style.display="none";
-        //  }
-        //  else if(document.getElementById("sidebar-nav").style.display="none"){
-        //     document.getElementById("sidebar-nav").style.display="block";
-        //  }
-        var x = document.getElementById("sidebar-nav");
-        if (x.style.display === "none" || x.style.display === "") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-        // if(document.getElementById("sidebar-nav").classList.contains('show')){
-        //     document.getElementById("sidebar-nav").classList.remove('show');
-        // }else{
-        //     document.getElementById("sidebar-nav").classList.add('show');
-        // }
-    }
-</script>
+<script src="script.js"></script>
