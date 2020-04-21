@@ -172,3 +172,6 @@ function clearInput(){
         elements[i].src ="";
     }
 }
+function submit(){
+    
+}
