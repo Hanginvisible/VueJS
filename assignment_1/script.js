@@ -71,7 +71,7 @@ function validate(id) {
 function add() {
     var newId = this.newId();
     // onblur="validate(' + newId + ')" validate id="' + newId + '"
-    var textInput = '<input  class="input-value" type="text">';
+    var textInput = '<input  class="input-value" id="' + newId + '" type="text">';
     var removeBtn = '<button onclick="remove(' + newId + ')" class="input-btn"><i class="fa fa-close"></i></button>';
     var html = '<div class="input-sub">' + textInput + removeBtn + '</div>'
 
@@ -83,6 +83,7 @@ function add() {
 }
 
 function remove(id) {
+    debugger
     var currentElement = document.getElementById('div-' + id);
     if (currentElement) currentElement.remove();
 }
@@ -105,6 +106,7 @@ function newId() {
 }
 
 function getInputValues() {
+    debugger
     var elements = document.getElementsByClassName('input-value');
     if (!elements || elements.length == 0) return [];
     var response = [];
@@ -114,7 +116,6 @@ function getInputValues() {
             value: elements[i].value
         });
     }
-    console.log(response);
     return response;
 }
 
@@ -122,16 +123,15 @@ function addImg() {
     var newId = this.newId();
     var img = '<img src="#" id ="img' + newId + '" class ="input-value-file">';
     var inputImg = '<input type="file" id="filetag" name="filetag" onchange="changeimage(this,' + "'img" + newId + "'" + ')"><br><br>';
-    var deleteImg = '<button onclick="removeImg('+ newId +')" class="input-btn"><i class="fa fa-close"></i></button>';
+    var deleteImg = '<button onclick="removeImg(' + newId + ')" class="input-btn"><i class="fa fa-close"></i></button>';
     var deltePre = '<button onclick =removePre(' + "'img" + newId + "'" + ')>Delete Preview</button>';
-    var html = '<div class ="input-file-sub">' + img + inputImg + deleteImg + deltePre +  '</div>';
+    var html = '<div class ="input-file-sub">' + img + inputImg + deleteImg + deltePre + '</div>';
 
     var newElement = document.createElement('div');
     newElement.innerHTML = html;
     newElement.id = newId;
     var currentElement = document.getElementById("input-file-wrapper");
     currentElement.append(newElement);
-    console.log(newId);
 }
 
 function changeimage(input, id) {
@@ -149,29 +149,66 @@ function changeimage(input, id) {
     }
 }
 
-function removeAll(){
+function removeAll() {
     var currentElement = document.getElementById("input-file-wrapper");
-    if(currentElement) currentElement.innerHTML ="";
+    if (currentElement) currentElement.innerHTML = "";
 }
 
-function removeImg(id){
+function removeImg(id) {
     debugger
     var currentElement = document.getElementById(id);
-    if(currentElement) currentElement.remove();
+    if (currentElement) currentElement.remove();
 }
-function removePre(id){
+function removePre(id) {
     debugger
     var currentElement = document.getElementById(id)
-    if(currentElement) currentElement.src = "";
+    if (currentElement) currentElement.src = "";
 }
-function clearInput(){
+function clearInput() {
     debugger
     var elements = document.getElementsByClassName('input-value-file');
     if (!elements || elements.length == 0) return;
     for (var i = 0; i < elements.length; i++) {
-        elements[i].src ="";
+        elements[i].src = "";
     }
 }
-function submit(){
-    
+function submit() {
+    var elements = document.getElementsByClassName('input-value');
+    if (!elements || elements.length == 0) {
+        alert('item not match');
+        return;
+    }
+    var response = [];
+    for (var i = 0; i < elements.length; i++) {
+        response.push({
+            id: elements[i].id,
+            value: elements[i].value
+        });
+    }
+
+    var items = document.getElementsByClassName('input-value-file');
+    if (!items || items.length == 0) {
+        return alert('item not match');
+    }
+    var response2 = [];
+    for (var i = 0; i < items.length; i++) {
+        response2.push({
+            id: items[i].id,
+            value: items[i].src
+        });
+    }
+
+    if (elements.length == items.length) {
+        var html = '';
+        for (var i = 0; i < response.length; i++) {
+            var title = '<div class="img-wrapper"><label class="img-title" id ="' + response[i].id + '">' + response[i].value + '</label>';
+            var content = '<img src="' + response2[i].value + '" id ="img' + response2[i].id + '" class ="input-value-file"/></div>';
+            html += title + content;
+        }
+        var currentElement = document.getElementById('content-wrapper');
+        currentElement.innerHTML = html;
+
+    } else {
+        alert('item not match');
+    }
 }
